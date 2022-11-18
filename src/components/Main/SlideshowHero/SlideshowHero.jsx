@@ -2,7 +2,7 @@ const SlideshowHero = () => {
    const lista = [1, 2, 3]
    return (
       <div data-uk-slideshow="animation: push; min-height: 300; max-height: 500">
-         <div className="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+         <div className="uk-position-relative uk-visible-toggle uk-light" tabIndex="-1">
             <ul className="uk-slideshow-items">
             {lista.map(item => 
                <li key={item}>
