@@ -1,7 +1,8 @@
-import Busqueda from "./Busqueda/Busqueda"
-import Categorias from "./Categorias/Categorias"
+import Busqueda from "../Busqueda/Busqueda"
+import CarWidget from "../CartWidget/CarWidget"
+import Categorias from "../Categorias/Categorias"
 
-const Header = () => {
+const NavBar = () => {
    return (
       <header data-uk-sticky>
          <nav className="uk-navbar-container uk-container" data-uk-navbar='mode: click'>
@@ -12,7 +13,12 @@ const Header = () => {
             {/* Right */}
             <div className="uk-navbar-right">
                <Busqueda placeholder={"Busca aquí"}/>
-               <Categorias/>
+               <ul className="uk-navbar-nav">
+                  <Categorias/>
+                  <li>
+                     <CarWidget/>
+                  </li>
+               </ul>
             </div>
 
          </nav>
@@ -20,4 +26,4 @@ const Header = () => {
    )
 }
 
-export default Header
+export default NavBar

@@ -1,5 +1,5 @@
 import Footer from './Footer/Footer'
-import Header from './Header/Header'
+import NavBar from './NavBar/NavBar'
 import Main from './Main/Main'
 import SlideshowHero from './SlideshowHero/SlideshowHero'
 import ItemListContainer from './ItemListContainer/ItemListContainer'
@@ -7,10 +7,10 @@ import ItemListContainer from './ItemListContainer/ItemListContainer'
 const App = () => {
 	return (
 		<>
-			<Header/>
+			<NavBar/>
 			<Main>
 				<SlideshowHero/>
-				<ItemListContainer/>
+				<ItemListContainer greeting={"Jud Store"}/>
 			</Main>
 			<Footer/>
 		</>

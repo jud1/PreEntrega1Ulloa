@@ -2,16 +2,21 @@ import { useState, useEffect } from "react"
 import { UseContenful } from "../UseContenful/UseContenful"
 import ItemList from '../ItemList/ItemList'
 
-const ItemListContainer = () => {
+const ItemListContainer = ({greeting}) => {
    const [items, setItems] = useState([])
 
    useEffect(() => {
       UseContenful('productos')
          .then((response) => setItems(response))
    }, [])
+   
+   console.log(items)
 
    return(
-      <ItemList arrItems={items}/>
+      <>
+         <h1 className="uk-container">{greeting}</h1>
+         <ItemList arrItems={items}/>
+      </>
    )
 }
 
