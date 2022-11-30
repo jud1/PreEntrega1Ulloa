@@ -1,4 +1,3 @@
-/* import TextTruncate from "react-text-truncate" */
 const precioConDescuento = (precio, descuento) => {
    return Math.trunc(precio * (1 - descuento / 100))
 }
@@ -16,13 +15,6 @@ const Item = ({dataItem}) => {
             data-uk-margin="margin: uk-margin-small-top uk-margin-remove-bottom"
          >
             <small>{marca} - {modelo}</small>
-            {/* <TextTruncate
-               line={1}
-               className="uk-card-title"
-               element="h4"
-               truncateText="…"
-               text={modelo}
-            /> */}
             <div className="uk-flex uk-flex-middle">
                <span className="uk-h4 uk-display-block uk-margin-remove-bottom">
                   $
@@ -38,7 +30,7 @@ const Item = ({dataItem}) => {
             >
                <div>
                   <a href="./" className="uk-button uk-button-primary">
-                     Ver Mas
+                     Ver Producto
                   </a>
                </div>
                <div>

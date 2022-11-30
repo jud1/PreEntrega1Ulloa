@@ -10,7 +10,7 @@ const ItemListContainer = ({greeting}) => {
          .then((response) => setItems(response))
    }, [])
    
-   console.log(items)
+   //console.log(items)
 
    return(
       <>
