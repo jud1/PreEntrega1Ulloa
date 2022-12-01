@@ -10,7 +10,6 @@ const App = () => {
 			<NavBar/>
 			<Main>
 				<ItemDetailContainer/>
-				<hr/>
 				<ItemListContainer greeting={"Jud Store"}/>
 			</Main>
 			<Footer/>

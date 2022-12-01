@@ -4,16 +4,20 @@ import ItemDetail from "../ItemDetail/ItemDetail"
 
 const ItemDetailContainer = () => {
    const [producto, setProducto] = useState([])
+   const [loading, setLoading]= useState(true)
 
    useEffect(() => {
       UseContenfulSingle('6W9NCTvfulNK4GZDdnnOEh')
          .then(response => setProducto(response))
+         .finally(()=> setLoading(false))
+            .catch((error)=> console.error(`:( ${error}`))
    }, [])
 
    return(
-      <div>
-         <ItemDetail producto={producto}/>
-         <hr />
+      <div className="uk-padding uk-padding-remove-horizontal">
+         <div className="uk-container">
+            { loading ? <p>Cargando..</p> :<ItemDetail producto={producto}/>}
+         </div>
       </div>
    )
 }
