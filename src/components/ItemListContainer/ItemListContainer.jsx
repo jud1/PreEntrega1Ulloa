@@ -10,8 +10,6 @@ const ItemListContainer = ({greeting}) => {
          .then(response => setItems(response))
    }, [])
    
-   //console.log(items)
-
    return(
       <>
          <h1 className="uk-container">{greeting}</h1>

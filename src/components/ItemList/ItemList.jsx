@@ -1,6 +1,7 @@
 import Item from "../Item/Item"
 
 const ItemList = ({ arrItems }) => {
+   console.log('Item list load')
    return (
       <div className="uk-container">
          <ul

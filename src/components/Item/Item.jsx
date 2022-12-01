@@ -2,7 +2,6 @@ const precioConDescuento = (precio, descuento) => {
    return Math.trunc(precio * (1 - descuento / 100))
 }
 const Item = ({dataItem}) => {
-   // console.log(dataItem)
    const { modelo, marca, galeria, precio, descuento } = dataItem.fields
    return(
       <div className="uk-card uk-card-default uk-padding-small">

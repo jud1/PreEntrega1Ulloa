@@ -1,7 +1,7 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const ItemDetail = ({producto}) => {
-   console.log(producto)
+   console.log('Item detail load')
    return (
       <div className="" data-uk-grid="">
          <h1 className="uk-width-1-1">{producto.fields.modelo}</h1>
