@@ -10,11 +10,10 @@ const ItemDetailContainer = () => {
          .then(response => setProducto(response))
    }, [])
 
-   console.log(producto)
-
    return(
       <div>
          <ItemDetail producto={producto}/>
+         <hr />
       </div>
    )
 }

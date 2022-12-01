@@ -1,10 +1,10 @@
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+/* import { documentToReactComponents } from "@contentful/rich-text-react-renderer" */
 
 const ItemDetail = ({producto}) => {
    console.log(producto)
    return (
       <>
-         {/* <div className="uk-padding uk-padding-remove-horizontal">
+         <div className="uk-padding uk-padding-remove-horizontal">
             <div className="uk-container">
                <div className="" data-uk-grid="">
                   <h1 className="uk-width-1-1">{producto.fields.modelo}</h1>
@@ -27,16 +27,10 @@ const ItemDetail = ({producto}) => {
                      <span className="uk-display-block">
                         Marca: {producto.fields.marca}
                      </span>
-                     <div
-                        className="uk-overflow-auto uk-margin-top"
-                        style={{ maxHeight: "200px" }}
-                     >
-                        {documentToReactComponents(producto.fields.descripcion)}
-                     </div>
                   </div>
                </div>
             </div>
-         </div> */}
+         </div>
       </>
    )
 }
