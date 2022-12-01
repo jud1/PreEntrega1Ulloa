@@ -7,7 +7,7 @@ const ItemListContainer = ({greeting}) => {
 
    useEffect(() => {
       UseContenful('productos')
-         .then((response) => setItems(response))
+         .then(response => setItems(response))
    }, [])
    
    //console.log(items)

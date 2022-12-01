@@ -1,6 +1,5 @@
 import Busqueda from "../Busqueda/Busqueda"
 import CarWidget from "../CartWidget/CarWidget"
-import Categorias from "../Categorias/Categorias"
 
 const NavBar = () => {
    return (
@@ -14,7 +13,15 @@ const NavBar = () => {
             <div className="uk-navbar-right">
                <Busqueda placeholder={"Busca aquí"}/>
                <ul className="uk-navbar-nav">
-                  <Categorias/>
+                  <li>
+                     <a href="./">Consolas</a>
+                  </li>
+                  <li>
+                     <a href="./">Juegos</a>
+                  </li>
+                  <li>
+                     <a href="./">Accesorios</a>
+                  </li>
                   <li>
                      <CarWidget/>
                   </li>

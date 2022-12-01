@@ -1,6 +1,5 @@
 {
-  "name": "preentrega1ulloa",
-  "homepage": "https://jud1.github.io/PreEntrega1Ulloa",
+  "name": "react-js-pre-entregas-ulloa",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,7 +8,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "contentful": "^9.2.12",
-    "gh-pages": "^4.0.0",
     "node-sass": "^7.0.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
