@@ -4,7 +4,7 @@ const UseContenful = async (type="productos") => {
    
    const client = createClient({
       space: 'k606idtreutn',
-      accessToken: process.env.REACT_APP_API_KEY,
+      accessToken: process.env.CONTENFUL_API_KEY,
       host: 'preview.contentful.com'
    })
    
