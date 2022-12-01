@@ -4,7 +4,7 @@ const UseContenfulSingle = async (id) => {
    
    const client = createClient({
       space: 'k606idtreutn',
-      accessToken: 'RvVbhDfxxecRXFgHMuS2hIFz_XXjb8e1qFNRvJD9wFU',
+      accessToken: process.env.REACT_APP_API_KEY,
       host: 'preview.contentful.com'
    })
    
