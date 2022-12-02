@@ -5,4 +5,21 @@ const consultarBBDD  = async () => {
    return productos
 }
 
-export { consultarBBDD }
+const sanitizarProducto = (item) => {
+   const id = item.sys.id
+   const galeria = (item.fields.galeria).map(image => {
+      const id = image.sys.id
+      return {
+         ...image.fields, id
+      }
+   })
+   return {
+      ...item.fields, id, galeria
+   }
+}
+
+const precioConDescuento = (precio, descuento) => {
+   return Math.trunc(precio * (1 - descuento / 100)).toLocaleString("es-CL")
+}
+
+export { consultarBBDD, sanitizarProducto, precioConDescuento }

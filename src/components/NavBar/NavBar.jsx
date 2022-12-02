@@ -1,26 +1,29 @@
+import { NavLink, Link } from "react-router-dom"
 import Busqueda from "../Busqueda/Busqueda"
 import CarWidget from "../CartWidget/CarWidget"
 
 const NavBar = () => {
+   const activeClassName = 'uk-text-primary'
+
    return (
       <header data-uk-sticky>
          <nav className="uk-navbar-container uk-container" data-uk-navbar='mode: click'>
             {/* Left */}
             <div className="uk-navbar-left">
-               <a className="uk-navbar-item uk-logo" href="./" aria-label="Back to Home">JUD STORE</a>
+               <Link className="uk-navbar-item uk-logo" to="/" aria-label="Back to Home">JUD STORE</Link>
             </div>
             {/* Right */}
             <div className="uk-navbar-right">
                <Busqueda placeholder={"Busca aquí"}/>
                <ul className="uk-navbar-nav">
                   <li>
-                     <a href="./">Consolas</a>
+                     <NavLink to={`/categorias/Nintendo`} className={({ isActive }) => isActive ? activeClassName : undefined} >Nintendo</NavLink>
                   </li>
                   <li>
-                     <a href="./">Juegos</a>
+                     <NavLink to={`/categorias/Playstation`} className={({ isActive }) => isActive ? activeClassName : undefined} >Playstation</NavLink>
                   </li>
                   <li>
-                     <a href="./">Accesorios</a>
+                     <NavLink to={`/categorias/Xbox`} className={({ isActive }) => isActive ? activeClassName : undefined} >Xbox</NavLink>
                   </li>
                   <li>
                      <CarWidget/>

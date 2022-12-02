@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom"
+
 const CarWidget = () => {
    return(
-      <a href="./">
+      <Link to="/Cart" aria-label="Back to Home">
          <span uk-icon="icon: bag"></span> (2)
-      </a>
+      </Link>
    )
 }
 

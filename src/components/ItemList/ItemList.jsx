@@ -1,20 +1,17 @@
 import Item from "../Item/Item"
 
 const ItemList = ({ arrItems }) => {
-   console.log('Item list load')
    return (
-      <div className="uk-container">
-         <ul
-            className="uk-child-width-1-3@m uk-child-width-1-2@s"
-            data-uk-grid=""
-         >
-            {arrItems.map((item) => (
-               <li key={item.sys.id}>
-                  <Item dataItem={item} />
-               </li>
-            ))}
-         </ul>
-      </div>
+      <ul
+         className="uk-child-width-1-3@m uk-child-width-1-2@s"
+         data-uk-grid=""
+      >
+         {arrItems.map((item) => (
+            <li key={item.id}>
+               <Item item={item} />
+            </li>
+         ))}
+      </ul>
    )
 }
 
