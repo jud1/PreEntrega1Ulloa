@@ -37,12 +37,12 @@ const ItemDetail = ({ producto }) => {
             </h4>
             <ul className="uk-grid uk-grid-small uk-margin-small-top">
                {categorias.map((categoria, index) => (
-                  <>
-                     {index!==0 && <span>/</span>}
-                     <li className="uk-width-auto" key={categoria}>
+                  <li className="uk-width-auto" key={index}>
+                     <div>
+                        {index!==0 && <span>/</span>}
                         <strong  className="uk-text-bold">{index!==0} {categoria}</strong>
-                     </li>
-                  </>
+                     </div>
+                  </li>
                ))}
             </ul>
             <div className="uk-flex uk-flex-middle uk-margin-top">
@@ -61,7 +61,7 @@ const ItemDetail = ({ producto }) => {
             >
                <tbody>
                   {caracteristicas.map((caracteristica) => (
-                     <tr key={caracteristica.split(":")[0]}>
+                     <tr key={caracteristica}>
                         <td>{caracteristica.split(":")[0]}:</td>
                         <td>{caracteristica.split(":")[1]}</td>
                      </tr>
