@@ -7,9 +7,10 @@ const ItemDetailContainer = () => {
    const [producto, setProducto] = useState([])
    const [loading, setLoading]= useState(true)
    const {id} = useParams()
+   const data = useContenfulSingle(id)
 
    useEffect(() => {
-      useContenfulSingle(id)
+     data
          .then(response => {
             setProducto(response)
             console.log('Carga detalle')

@@ -8,11 +8,11 @@ import SlideshowHero from "../SlideshowHero/SlideshowHero"
 const ItemListContainer = () => {
    const [items, setItems] = useState([])
    const { categoria } = useParams()
-
+   const data = useContenful('productos')
    useEffect(() => {
 
       if(categoria){
-         useContenful('productos')
+         data
             .then(respuesta => {
                const filtrado = []
                respuesta.forEach(e => e.categorias.includes(categoria) && filtrado.push(e) )
@@ -20,7 +20,7 @@ const ItemListContainer = () => {
                console.log('Carga lista')
             })
       } else {
-         useContenful('productos')
+         data
             .then(respuesta => setItems(respuesta))
       }
 
