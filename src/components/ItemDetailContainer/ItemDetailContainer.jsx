@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
          })
          .catch((error)=> console.error(`:( ${ error }`))
          .finally(()=> setLoading(false))
-   }, [id])
+   }, [data])
 
    return(
       <div className="uk-padding uk-padding-remove-horizontal">
