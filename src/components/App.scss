@@ -1,0 +1,14 @@
+body {
+   transition: all 200ms ease;
+   /* &.uk-light {
+      background-color: #222222;
+   } */
+}
+.ReactModal__Content {
+   top: 50% !important;
+   left: 50% !important;
+   right: auto !important;
+   bottom: auto !important;
+   margin-right: -50%;
+   transform: translate(-50%, -50%);
+}

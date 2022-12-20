@@ -18,8 +18,10 @@ const sanitizarProducto = (item) => {
    }
 }
 
+
+
 const precioConDescuento = (precio, descuento) => {
-   return Math.trunc(precio * (1 - descuento / 100)).toLocaleString("es-CL")
+   return Math.trunc(precio * (1 - descuento / 100))
 }
 
 export { consultarBBDD, sanitizarProducto, precioConDescuento }
