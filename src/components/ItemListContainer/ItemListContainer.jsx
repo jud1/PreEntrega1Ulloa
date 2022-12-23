@@ -20,7 +20,7 @@ const ItemListContainer = () => {
             .then(productos=>setItems(productos))
       }
    }, [categoria])
-   console.log(items)
+   
    return(
       <>
          {categoria ? false : <SlideshowHero/>}

@@ -21,14 +21,20 @@ const storage = getStorage()
 
 const getProductos = async () => {
    const productos = await getDocs(collection(db, "productos"))
-   const items = productos.docs.map(prod => {
-      const newGaleria = prod.data().galeria.map(async(img) => {
-         return await getDownloadURL(ref(storage, img))
+   const items = await Promise.all(
+      productos.docs.map( async (prod) => {
+
+         const galeriaFinal = await Promise.all(
+            prod.data().galeria.map(async (url) => {
+               return await getDownloadURL(ref(storage, url))
+            })
+         )
+
+         return {
+            ...prod.data(), id: prod.id, galeria: galeriaFinal
+         }
       })
-      return {
-         ...prod.data(), id: prod.id, galeria: newGaleria
-      }
-   })
+   )
    return items
 }
 
