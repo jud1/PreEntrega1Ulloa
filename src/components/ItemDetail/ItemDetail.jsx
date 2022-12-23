@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Modal from "react-modal"
 import { useCartContext } from "../../context/CartContext"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { precioConDescuento } from "../../assets/funciones"
 import ItemCount from "../ItemCount/ItemCount"
 import { Link } from "react-router-dom"
@@ -20,7 +19,7 @@ const ItemDetail = ({ producto }) => {
       addItem(producto, contador)
       setModal(true)
    }
-
+   // console.log(producto)
    // Data
    const {
       modelo,
@@ -30,8 +29,7 @@ const ItemDetail = ({ producto }) => {
       marca,
       categorias,
       stock,
-      caracteristicas,
-      descripcion,
+      descripcion
    } = producto
 
    return (
@@ -41,11 +39,11 @@ const ItemDetail = ({ producto }) => {
                <h1 className="uk-width-1-1 uk-h2 uk-text-bold">{modelo}</h1>
                <div data-uk-slider="finite: true">
                   <ul className="uk-slider-items">
-                     {galeria.map((imagen) => (
-                        <li className="uk-width-4-5" key={imagen.id}>
-                           <img src={imagen.file.url} alt={imagen.title} />
+                     { galeria.map((imagen, index) => (
+                        <li className="uk-width-4-5" key={index}>
+                           <img src={imagen} alt={imagen} />
                         </li>
-                     ))}
+                     )) }
                   </ul>
                   <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
                </div>
@@ -84,7 +82,7 @@ const ItemDetail = ({ producto }) => {
             <div className="uk-margin-top">
                <ItemCount min={1} stock={stock} onAdd={onAdd} />
             </div>
-            <table
+            {/* <table
                className="uk-table uk-table-small uk-table-divider uk-margin-medium-top"
                style={{ border: "1px solid #e5e5e5" }}
             >
@@ -96,9 +94,9 @@ const ItemDetail = ({ producto }) => {
                      </tr>
                   ))}
                </tbody>
-            </table>
+            </table> */}
             <div className="uk-margin-medium-top">
-               {documentToReactComponents(descripcion)}
+               {descripcion}
             </div>
          </div>
          <Modal isOpen={modal} onRequestClose={() => setModal(false)}>

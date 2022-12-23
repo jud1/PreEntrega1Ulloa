@@ -15,12 +15,11 @@ const Item = ({ item }) => {
       navigate("/Cart")
    }
    const { modelo, marca, galeria, precio, descuento, stock, id } = item
-
    return (
       <div className={`uk-card uk-padding-small uk-animation-slide-bottom-small uk-margin-top ${darkMode ? "uk-card-secondary" : "uk-card-default"}`}>
          <figure
             className="uk-height-medium uk-background-contain"
-            style={{ backgroundImage: `url(${galeria[0].file.url})` }}
+            style={{ backgroundImage: `url(${galeria[0]})` }}
          ></figure>
          <div
             className="uk-card-body uk-padding-small"

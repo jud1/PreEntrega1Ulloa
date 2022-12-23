@@ -18,8 +18,6 @@ const sanitizarProducto = (item) => {
    }
 }
 
-
-
 const precioConDescuento = (precio, descuento) => {
    return Math.trunc(precio * (1 - descuento / 100))
 }

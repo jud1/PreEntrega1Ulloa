@@ -19,25 +19,25 @@ const Cart = () => {
                               <tr>
                                  <th></th>
                                  <th>Nombre</th>
-                                 <th>Cantidad</th>
                                  <th>Precio</th>
+                                 <th>Cantidad</th>
                                  <th>Total</th>
                                  <th></th>
                               </tr>
                            </thead>
                            <tbody className="uk-table-middle">
-                              { cart.map( product => 
-                                 <tr key={product.id}>
-                                    <td><img src={product.galeria[0].file.url} alt={product.modelo} width={40} height={40} /></td>
-                                    <td>{product.modelo}</td>
-                                    <td>${precioConDescuento(product.precio, product.descuento).toLocaleString("es-CL")}</td>
-                                    <td>{product.quantity}</td>
+                              { cart.map( producto => 
+                                 <tr key={producto.id}>
+                                    <td><img src={producto.galeria[0]} alt={producto.modelo} width={40} height={40} /></td>
+                                    <td>{producto.nombre}</td>
+                                    <td>${precioConDescuento(producto.precio, producto.descuento).toLocaleString("es-CL")}</td>
+                                    <td>{producto.quantity}</td>
                                     <td>
                                        $
-                                       { (precioConDescuento(product.precio, product.descuento)*product.quantity).toLocaleString("es-CL") }
+                                       { (precioConDescuento(producto.precio, producto.descuento)*producto.quantity).toLocaleString("es-CL") }
                                     </td>
                                     <td>
-                                       <button type="button" uk-icon="icon: trash" onClick={()=> removeItem(product.id)}></button>
+                                       <button type="button" uk-icon="icon: trash" onClick={()=> removeItem(producto.id)}></button>
                                     </td>
                                  </tr>
                               ) }

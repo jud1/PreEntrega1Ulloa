@@ -25,7 +25,7 @@ const NavBar = () => {
                      to="/"
                      aria-label="Back to Home"
                   >
-                     JUD STORE
+                     Yerba Mate Talca
                   </Link>
                </div>
                <div>
@@ -37,32 +37,32 @@ const NavBar = () => {
                   <ul className="uk-navbar-nav">
                      <li>
                         <NavLink
-                           to={`/categorias/Nintendo`}
+                           to={`/categorias/mate`}
                            className={({ isActive }) =>
                               isActive ? activeClassName : undefined
                            }
                         >
-                           Nintendo
+                           Mate
                         </NavLink>
                      </li>
                      <li>
                         <NavLink
-                           to={`/categorias/Playstation`}
+                           to={`/categorias/materas`}
                            className={({ isActive }) =>
                               isActive ? activeClassName : undefined
                            }
                         >
-                           Playstation
+                           Materas
                         </NavLink>
                      </li>
                      <li>
                         <NavLink
-                           to={`/categorias/Xbox`}
+                           to={`/categorias/bombillas`}
                            className={({ isActive }) =>
                               isActive ? activeClassName : undefined
                            }
                         >
-                           Xbox
+                           Bombillas
                         </NavLink>
                      </li>
                      <li>
