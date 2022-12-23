@@ -25,9 +25,8 @@ const getProductos = async () => {
       const newGaleria = prod.data().galeria.map(async(img) => {
          return await getDownloadURL(ref(storage, img))
       })
-      console.log(newGaleria)
       return {
-         ...prod.data(), id: prod.id
+         ...prod.data(), id: prod.id, galeria: newGaleria
       }
    })
    return items
