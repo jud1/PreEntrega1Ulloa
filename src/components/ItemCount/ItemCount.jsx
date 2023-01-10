@@ -8,36 +8,41 @@ const ItemCount = ({ stock, min, onAdd }) => {
    const agregarCarrito = () => onAdd(contador)
 
    return (
-      <div className="uk-container" data-uk-margin="margin: uk-margin-top">
-         <div className="uk-flex">
-            <button
-               className="uk-button uk-button-default"
-               onClick={() => decrementar()}
-            >
-               -
-            </button>
-            <input
-               className="uk-input uk-text-center"
-               style={{ width: "70px" }}
-               type="text"
-               readOnly
-               value={contador}
-            />
-            <button
-               className="uk-button uk-button-default"
-               onClick={() => incrementar()}
-            >
-               +
-            </button>
-            <div className="uk-width-expand">
-               <button
-                  className="uk-button uk-button-danger uk-width-1-1"
-                  data-uk-icon="icon: cart"
-                  onClick={() => agregarCarrito()}
-               ></button>
+      <>
+         { stock >= 1 ?
+            <div className="uk-container" data-uk-margin="margin: uk-margin-top">
+               <div className="uk-flex">
+                  <button
+                     className="uk-button uk-button-default"
+                     onClick={() => decrementar()}
+                  >
+                     -
+                  </button>
+                  <input
+                     className="uk-input uk-text-center"
+                     style={{ width: "70px" }}
+                     type="text"
+                     readOnly
+                     value={contador}
+                  />
+                  <button
+                     className="uk-button uk-button-default"
+                     onClick={() => incrementar()}
+                  >
+                     +
+                  </button>
+                  <div className="uk-width-expand">
+                     <button
+                        className="uk-button uk-button-danger uk-width-1-1"
+                        data-uk-icon="icon: cart"
+                        onClick={() => agregarCarrito()}
+                     ></button>
+                  </div>
+               </div>
             </div>
-         </div>
-      </div>
+            : <span className="uk-text-center uk-h4 uk-display-block uk-margin-remove-bottom">Producto Agotado</span>
+         }
+      </>
    )
 }
 

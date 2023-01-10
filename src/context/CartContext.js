@@ -37,7 +37,7 @@ export const CartProvider = props => {
    }
    
    const totalPrice = () => {
-      return cart.reduce((acum, prod) => acum += (prod.quantity * prod.precio), 0)
+      return cart.reduce((acum, prod) => acum += (prod.quantity * prod.precio * (100 - Number(prod.descuento))/100), 0)
    }
    
    return(

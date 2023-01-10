@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { getProducto } from "../../assets/firebase"
+import { getProducto } from "../../functions/firebase"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 const ItemDetailContainer = () => {

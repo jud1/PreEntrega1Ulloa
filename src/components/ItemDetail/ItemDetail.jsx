@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Modal from "react-modal"
 import { useCartContext } from "../../context/CartContext"
-import { precioConDescuento } from "../../assets/funciones"
+import { precioConDescuento } from "../../functions/funciones"
 import ItemCount from "../ItemCount/ItemCount"
 import { Link } from "react-router-dom"
 
@@ -82,19 +82,6 @@ const ItemDetail = ({ producto }) => {
             <div className="uk-margin-top">
                <ItemCount min={1} stock={stock} onAdd={onAdd} />
             </div>
-            {/* <table
-               className="uk-table uk-table-small uk-table-divider uk-margin-medium-top"
-               style={{ border: "1px solid #e5e5e5" }}
-            >
-               <tbody>
-                  {caracteristicas.map((caracteristica) => (
-                     <tr key={caracteristica}>
-                        <td>{caracteristica.split(":")[0]}:</td>
-                        <td>{caracteristica.split(":")[1]}</td>
-                     </tr>
-                  ))}
-               </tbody>
-            </table> */}
             <div className="uk-margin-medium-top">
                {descripcion}
             </div>

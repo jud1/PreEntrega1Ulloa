@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useCartContext } from '../../context/CartContext'
-import { precioConDescuento } from '../../assets/funciones'
+import { precioConDescuento } from '../../functions/funciones'
 
 const Cart = () => {
    const { cart, totalPrice, emptyCart, removeItem } = useCartContext()
@@ -46,7 +46,7 @@ const Cart = () => {
                      </div>
                      <div className="uk-margin-large-top" data-uk-margin="margin: uk-margin-top">
                         <h4 className="uk-text-bold">Resumen de la compra: </h4>
-                        <h5>Total compra: {totalPrice()}</h5>
+                        <h5>Total compra: ${totalPrice().toLocaleString("es-CL")}</h5>
                         <button type="button" className="uk-button uk-button-default" onClick={()=>emptyCart()}>
                            <span>Vaciar carrito</span>
                            <i className="uk-margin-small-left" uk-icon="icon: trash"></i>

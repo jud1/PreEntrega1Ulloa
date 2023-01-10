@@ -11,7 +11,7 @@ const firebaseConfig = {
    appId: "1:695147579825:web:8851388063bd92a2fb9590"
 }
 
-initializeApp(firebaseConfig)
+const firebaseApp = initializeApp(firebaseConfig)
 
 const db = getFirestore()
 
@@ -61,18 +61,24 @@ const deleteProducto = async (id) => {
 
 // Crear y leer orden de compra
 
-const createOrdenCompra = async (cliente, fecha, precioTotal) => {
+const createOrdenCompra = async (cliente, fecha, pTotal) => {
    const ordenCompra = await addDoc(collection(db, "ordenesDeCompra"), {
       nombre: cliente.nombre,
       email: cliente.email,
       rut: cliente.rut,
-      direccion: cliente.direccion,
       telefono: cliente.telefono,
-      fecha: fecha
+      direccion: cliente.direccion,
+      comuna: cliente.comuna,
+      fecha: fecha,
+      precioTotal: pTotal
    })
    return ordenCompra
 }
 
+const getOrdenCompra =  async (id) => {
+   const ordenCompra = await getDoc(doc(db, "ordenesDeCompra", id))
+   const item = {...ordenCompra.data(), id: ordenCompra.id}
+   return item
+}
 
-
-export { getProductos, getProducto, updateProducto, deleteProducto, createOrdenCompra }
+export { firebaseApp, firebaseConfig, getProductos, getProducto, updateProducto, deleteProducto, createOrdenCompra, getOrdenCompra }

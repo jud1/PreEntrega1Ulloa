@@ -1,8 +1,8 @@
 import { NavLink, Link } from "react-router-dom"
 import { UseDarkModeContext } from "../../context/DarkModeContext"
-import Busqueda from "../Busqueda/Busqueda"
 import CarWidget from "../CartWidget/CarWidget"
 import ButtonDarkMode from "./ButtonDarkMode/ButtonDarkMode"
+/* import GoogleLogin from "../GoogleLogin/GoogleLogin" */
 
 const NavBar = () => {
    const activeClassName = "uk-text-primary"
@@ -28,12 +28,12 @@ const NavBar = () => {
                      Yerba Mate Talca
                   </Link>
                </div>
-               <div>
+               <div className="uk-flex uk-flex-middle uk-flex-center uk-margin-small-left">
                   <ButtonDarkMode />
+                  {/* <GoogleLogin className="uk-margin-small-left"></GoogleLogin> */}
                </div>
                {/* Right */}
                <div className="uk-navbar-right">
-                  <Busqueda placeholder={"Busca aquí"} />
                   <ul className="uk-navbar-nav">
                      <li>
                         <NavLink

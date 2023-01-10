@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import ItemList from '../ItemList/ItemList'
-import SlideshowHero from "../SlideshowHero/SlideshowHero"
-import { getProductos } from "../../assets/firebase"
+import { getProductos } from "../../functions/firebase"
 
 const ItemListContainer = () => {
    const [items, setItems] = useState([])
@@ -12,19 +11,25 @@ const ItemListContainer = () => {
          getProductos()
             .then(productos=> {
                const filtrado = []
-               productos.forEach(e => e.categorias.includes(categoria) && filtrado.push(e) )
+               productos.forEach(e => {
+                  if(e.categorias.includes(categoria) && e.stock>=1){
+                     filtrado.push(e)
+                  }
+               })
                setItems(filtrado)
             })
       } else {
          getProductos()
-            .then(productos=>setItems(productos))
+            .then(productos=>{
+               const aux = productos.filter(prod=> prod.stock>=1)
+               setItems(aux)
+            })
       }
    }, [categoria])
    
    return(
       <>
-         {categoria ? false : <SlideshowHero/>}
-         <div className="uk-container uk-margin-medium-top">
+         <div className="uk-container">
             {categoria && <h2>Categoría: {categoria}</h2>}
             <ItemList arrItems={items}/>
          </div>
