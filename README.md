@@ -12,4 +12,5 @@ Proyecto final para el curso de React js de Coderhouse, simulando un ecommerce l
 - [React.js](https://es.reactjs.org/) - Framework de JS
 - [Uikit](https://getuikit.com/docs/introduction) - Framework de CSS
 ___
-### Capturas
+### Demostración
+https://user-images.githubusercontent.com/9661225/211713570-a8872c57-69da-407b-80f3-7588ed9ec83f.mp4
