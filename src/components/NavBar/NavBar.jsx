@@ -2,7 +2,6 @@ import { NavLink, Link } from "react-router-dom"
 import { UseDarkModeContext } from "../../context/DarkModeContext"
 import CarWidget from "../CartWidget/CarWidget"
 import ButtonDarkMode from "./ButtonDarkMode/ButtonDarkMode"
-/* import GoogleLogin from "../GoogleLogin/GoogleLogin" */
 
 const NavBar = () => {
    const activeClassName = "uk-text-primary"
@@ -10,6 +9,7 @@ const NavBar = () => {
 
    return (
       <header
+         className="uk-box-shadow-small"
          data-uk-sticky
       >
          <div className={`uk-width-1-1 ${darkMode ? "uk-background-secondary" : "uk-background-default"}`}>

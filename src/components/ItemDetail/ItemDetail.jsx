@@ -53,6 +53,7 @@ const ItemDetail = ({ producto }) => {
             <h4 className="uk-display-block uk-margin-remove">
                <strong>Marca: {marca}</strong>
             </h4>
+            <span className="uk-display-block">Stock: {stock}</span>
             <ul className="uk-grid uk-grid-small uk-margin-small-top">
                {categorias.map((categoria, index) => (
                   <li className="uk-width-auto" key={index}>
@@ -65,20 +66,25 @@ const ItemDetail = ({ producto }) => {
                   </li>
                ))}
             </ul>
-            <div className="uk-flex uk-flex-middle uk-margin-top">
-               <h3
-                  className="uk-h2 uk-text-bold uk-margin-remove"
-                  style={{ lineHeight: 1 }}
-               >
-                  <small>$</small>
-                  {precioConDescuento(precio, descuento).toLocaleString(
-                     "es-CL"
+            
+            <div>
+               <div className="uk-flex uk-flex-middle">
+                  <span className="uk-h4 uk-display-block uk-margin-remove-bottom uk-h2 uk-text-bold uk-text-primary">
+                     ${precioConDescuento(precio, descuento).toLocaleString("es-CL")}
+                  </span>
+                  {descuento > 1 && (
+                     <span className="uk-badge uk-margin-small-left">
+                        - {descuento}%
+                     </span>
                   )}
-               </h3>
-               <span className="uk-label uk-margin-small-left">
-                  {descuento}% DCTO
-               </span>
+               </div>
+               {descuento > 1 && (
+                  <small className="uk-h5 uk-margin-remove uk-display-block">
+                     Antes: $<del>{precio}</del>
+                  </small>
+               )}
             </div>
+
             <div className="uk-margin-top">
                <ItemCount min={1} stock={stock} onAdd={onAdd} />
             </div>

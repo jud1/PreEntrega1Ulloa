@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom"
 import { createOrdenCompra, getOrdenCompra, getProducto, updateProducto } from "../../functions/firebase"
 import { generateRandomRUT, validateRUT } from "validar-rut"
 import { useCartContext } from "../../context/CartContext"
-import { ToastContainer, toast } from "react-toastify"
+import { toast } from "react-toastify"
 import comunas from "../../assets/comunas"
-import "react-toastify/dist/ReactToastify.css"
+
 
 const Checkout = () => {
    const { totalPrice, emptyCart, cart } = useCartContext()
@@ -28,17 +28,23 @@ const Checkout = () => {
                if(prodBBDD.stock >= productoCart.quantity){
                   prodBBDD.stock -= productoCart.quantity
                   updateProducto(productoCart.id, prodBBDD)
-                  createOrdenCompra(formDataObj, new Date(),totalPrice()).then((ordenCompra) => {
-                     getOrdenCompra(ordenCompra.id).then(() => {
-                        e.target.reset()
-                        emptyCart()
-                        navigate("/")
-                     })
-                  })
                }
                else {
-                  notify(`Uno de tus productos agoto el stock`)
+                  emptyCart()
+                  navigate("/cart")
+                  notify(`Algunos de tus productos no tienen stock: ${prodBBDD.nombre}`)
                }
+            })
+         })
+         createOrdenCompra(formDataObj, new Date(),totalPrice()).then((ordenCompra) => {
+            getOrdenCompra(ordenCompra.id).then(item => {
+               toast.success(`Su orden de compra es ${item.id}`)
+               emptyCart()
+               e.target.reset()
+               navigate("/")
+            }).catch(error => {
+               toast.error("Su orden no fue generada con exito")
+               console.error(error)
             })
          })
       } 
@@ -50,8 +56,7 @@ const Checkout = () => {
 
    return (
       <div className="uk-container uk-margin-large-top" data-uk-margin="margin: uk-margin-top">
-         <ToastContainer />
-         <h2>componente checkout</h2>
+         <h2 className="uk-margin-medium-top">Finalizar compra</h2>
          <form onSubmit={consultarFormulario} ref={datosFormulario} data-uk-margin="margin: uk-margin-top">
             <div>
                <label htmlFor="nombre" className="uk-form-label">
@@ -117,7 +122,7 @@ const Checkout = () => {
                </div>
             </div>
             { cart.length >= 1
-               ? <button className="uk-button uk-button-primary" type="submit">Ir a pagar</button>
+               ? <button className="uk-button uk-button-primary" type="submit">Finalizar</button>
                : false
             }
          </form>

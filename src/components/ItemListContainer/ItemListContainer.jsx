@@ -30,7 +30,7 @@ const ItemListContainer = () => {
    return(
       <>
          <div className="uk-container">
-            {categoria && <h2>Categoría: {categoria}</h2>}
+            {categoria && <h2 className="uk-margin-medium-top">Categoría: {categoria}</h2>}
             <ItemList arrItems={items}/>
          </div>
       </>

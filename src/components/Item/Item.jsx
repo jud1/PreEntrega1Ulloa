@@ -31,24 +31,27 @@ const Item = ({ item }) => {
                <h4 className="uk-text-center uk-text-bold uk-margin-remove-bottom">
                   {marca} - {nombre}
                </h4>
-               <div className="uk-flex uk-flex-middle uk-flex-center">
-                  <span className="uk-h4 uk-display-block uk-margin-remove-bottom uk-h2 uk-text-bold uk-text-primary">
-                     ${precioConDescuento(precio, descuento).toLocaleString("es-CL")}
-                  </span>
-                  {descuento > 1 && (
-                     <span className="uk-badge uk-margin-small-left">
-                        - {descuento}%
+               <span className="uk-display-block uk-text-center">Stock: {stock}</span>
+               <div>
+                  <div className="uk-flex uk-flex-middle uk-flex-center">
+                     <span className="uk-h4 uk-display-block uk-margin-remove-bottom uk-h2 uk-text-bold uk-text-primary">
+                        ${precioConDescuento(precio, descuento).toLocaleString("es-CL")}
                      </span>
+                     {descuento > 1 && (
+                        <span className="uk-badge uk-margin-small-left">
+                           - {descuento}%
+                        </span>
+                     )}
+                  </div>
+                  {descuento > 1 && (
+                     <small className="uk-h5 uk-margin-remove uk-display-block uk-text-center">
+                        Antes: $<del>{precio}</del>
+                     </small>
                   )}
                </div>
             </div>
             <div>
-               <Link
-                  className="uk-button uk-button-secondary uk-width-1-1"
-                  to={`/productos/${id}`}
-               >
-                  Ver producto
-               </Link>
+               <Link className="uk-button uk-button-secondary uk-width-1-1" to={`/productos/${id}`}>Ver producto</Link>
             </div>
             <div className="uk-margin-top">
                <ItemCount min={1} stock={stock} onAdd={onAdd} />

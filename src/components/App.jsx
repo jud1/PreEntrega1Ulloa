@@ -1,5 +1,7 @@
 // Assets
 import "./App.scss"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 // Router
 import { BrowserRouter, Routes, Route } from "react-router-dom"
@@ -41,6 +43,7 @@ const App = () => {
                      <Route path="*" element={<Error404 />} />
                   </Routes>
                </Main>
+               <ToastContainer />
                <Footer />
             </DarkModeProvider>
          </BrowserRouter>
